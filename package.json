@@ -14,11 +14,10 @@
     "type": "git",
     "url": "git://github.com/keinu/namecheap-checker.git"
   },
-
   "main": "./namecheap-checker.js",
   "dependencies": {
     "request": "*",
     "xml2json": "*"
   },
-  "readmeFilename": "README.md",
+  "readmeFilename": "README.md"
 }
