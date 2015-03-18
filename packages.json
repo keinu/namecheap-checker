@@ -1,7 +1,5 @@
 {
-  "author": {
-    "name" : "Xabi Errotabehere"
-  },
+  "author": "Xabi Errotabehere",
   "name": "namecheap-checker",
   "description": "Nodejs library for domain availability checker with NameCheap API",
   "keywords": [
