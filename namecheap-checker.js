@@ -9,7 +9,7 @@ module.exports = function(api_user, api_key, client_ip) {
 		config.api_key = api_key;
 		config.client_ip = client_ip;
 
-	var url = 'https://api.namecheap.com/xml.response';
+	var baseUrl = 'https://api.namecheap.com/xml.response';
 
 	var checkDomains = function(domains, callback) {
 
@@ -21,14 +21,23 @@ module.exports = function(api_user, api_key, client_ip) {
 		params.ClientIp = config.client_ip;
 		params.DomainList = domains;
 
-		url += "?" + qs.stringify(params);
+		var url = baseUrl + "?" + qs.stringify(params);
 
 		request.get({url: url}, function(error, response, body) {
 
+			if (error) {
+				callback(error);
+				return false;
+			}
+
 			body = parser.toJson(body, { object: true });
 			error = body.ApiResponse.Errors.Error;
-			var domains = body.ApiResponse.CommandResponse.DomainCheckResult;
+			if (error) {
+				callback(error);
+				return false;
+			}
 
+			var domains = body.ApiResponse.CommandResponse.DomainCheckResult;
 			error = error ? { code : error.Number, message: error.$t } : undefined;
 
 			callback(error, domains);
