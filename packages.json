@@ -1,0 +1,26 @@
+{
+  "author": {
+    "name" : "Xabi Errotabehere"
+  },
+  "name": "namecheap-checker",
+  "description": "Nodejs library for domain availability checker with NameCheap API",
+  "keywords": [
+    "namecheap",
+    "domains",
+    "domain",
+    "whois"
+  ],
+  "version": "0.0.1",
+  "homepage": "https://github.com/keinu/namecheap-checker",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/keinu/namecheap-checker.git"
+  },
+
+  "main": "./namecheap-checker.js",
+  "dependencies": {
+    "request": "*",
+    "xml2json": "*"
+  },
+  "readmeFilename": "README.md",
+}
