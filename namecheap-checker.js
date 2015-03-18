@@ -11,7 +11,7 @@ module.exports = function(api_user, api_key, client_ip) {
 
 	var url = 'https://api.namecheap.com/xml.response';
 
-	var checkDomians = function(domains, callback) {
+	var checkDomains = function(domains, callback) {
 
 		var params = {};
 		params.ApiUser = config.api_user;
@@ -40,7 +40,7 @@ module.exports = function(api_user, api_key, client_ip) {
 	};
 
 	return {
-		checkDomians: checkDomians
+		checkDomains: checkDomains
 	};
 
 };
