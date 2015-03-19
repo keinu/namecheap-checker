@@ -32,13 +32,19 @@ module.exports = function(api_user, api_key, client_ip) {
 
 			body = parser.toJson(body, { object: true });
 			error = body.ApiResponse.Errors.Error;
+			error = error ? { code : error.Number, message: error.$t } : undefined;
 			if (error) {
 				callback(error);
 				return false;
 			}
 
-			var domains = body.ApiResponse.CommandResponse.DomainCheckResult;
-			error = error ? { code : error.Number, message: error.$t } : undefined;
+			var domains = [];
+			body.ApiResponse.CommandResponse.DomainCheckResult.forEach(function(domain) {
+				domains.push({
+					"domain": domain.Domain,
+					"available": domain.Available
+				});
+			});
 
 			callback(error, domains);
 
