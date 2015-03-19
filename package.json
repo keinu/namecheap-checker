@@ -8,11 +8,11 @@
     "domain",
     "whois"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/keinu/namecheap-checker",
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/keinu/namecheap-checker.git"
+    "url": "git://github.com/keinu/namecheap-checker"
   },
   "main": "./namecheap-checker.js",
   "dependencies": {
