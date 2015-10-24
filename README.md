@@ -5,8 +5,8 @@ This is a simple domain name checker to check domain name availability through [
 # Usage
 
 ```javascript
-Ns = require('namecheap-checker');
-var checker = new Ns(USER, KEY, IP);
+var Ns = require('namecheap-checker'),
+    checker = new Ns(USER, KEY, IP);
     checker.checkDomains(["google.com", "google.org", "google.net"], function(err, result) {
         if (err) {
           throw err;
